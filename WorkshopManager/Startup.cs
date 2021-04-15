@@ -28,6 +28,7 @@ namespace WorkshopManager
         {
 
             services.AddControllers();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WorkshopManager", Version = "v1" });

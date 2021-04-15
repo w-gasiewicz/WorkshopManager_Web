@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace WorkshopManager.Models
 {
-    public partial class TblWork
+    public partial class Works
     {
         public int Id { get; set; }
         public int UserId { get; set; }
@@ -14,7 +14,7 @@ namespace WorkshopManager.Models
         public DateTime? EndDate { get; set; }
         public decimal? NumberOfWorkHours { get; set; }
 
-        public virtual TblUser User { get; set; }
-        public virtual TblVehicle Vehicle { get; set; }
+        public virtual Users User { get; set; }
+        public virtual Vehicles Vehicle { get; set; }
     }
 }

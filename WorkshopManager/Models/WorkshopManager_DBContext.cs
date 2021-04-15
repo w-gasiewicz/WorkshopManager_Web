@@ -17,17 +17,16 @@ namespace WorkshopManager.Models
         {
         }
 
-        public virtual DbSet<TblRole> TblRoles { get; set; }
-        public virtual DbSet<TblUser> TblUsers { get; set; }
-        public virtual DbSet<TblVehicle> TblVehicles { get; set; }
-        public virtual DbSet<TblWork> TblWorks { get; set; }
+        public virtual DbSet<Roles> TblRoles { get; set; }
+        public virtual DbSet<Users> TblUsers { get; set; }
+        public virtual DbSet<Vehicles> TblVehicles { get; set; }
+        public virtual DbSet<Works> TblWorks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=localhost;Database=WorkshopManager_DB;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Name=WorkshopManager_DB");
             }
         }
 
@@ -35,7 +34,7 @@ namespace WorkshopManager.Models
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Polish_CI_AS");
 
-            modelBuilder.Entity<TblRole>(entity =>
+            modelBuilder.Entity<Roles>(entity =>
             {
                 entity.ToTable("tbl_ROLES");
 
@@ -48,7 +47,7 @@ namespace WorkshopManager.Models
                     .IsFixedLength(true);
             });
 
-            modelBuilder.Entity<TblUser>(entity =>
+            modelBuilder.Entity<Users>(entity =>
             {
                 entity.ToTable("tbl_USERS");
 
@@ -85,7 +84,7 @@ namespace WorkshopManager.Models
                     .HasConstraintName("FK_tbl_USERS_tbl_ROLES");
             });
 
-            modelBuilder.Entity<TblVehicle>(entity =>
+            modelBuilder.Entity<Vehicles>(entity =>
             {
                 entity.ToTable("tbl_VEHICLES");
 
@@ -116,7 +115,7 @@ namespace WorkshopManager.Models
                     .HasColumnName("YEAR_OF_PRODUCTION");
             });
 
-            modelBuilder.Entity<TblWork>(entity =>
+            modelBuilder.Entity<Works>(entity =>
             {
                 entity.ToTable("tbl_WORK");
 
