@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace WorkshopManager.Models
 {
-    public partial class Vehicles
+    public partial class TblVehicle
     {
-        public Vehicles()
+        public TblVehicle()
         {
-            TblWorks = new HashSet<Works>();
+            TblWorks = new HashSet<TblWork>();
         }
 
         public int Id { get; set; }
@@ -19,6 +19,6 @@ namespace WorkshopManager.Models
         public string Make { get; set; }
         public string Model { get; set; }
 
-        public virtual ICollection<Works> TblWorks { get; set; }
+        public virtual ICollection<TblWork> TblWorks { get; set; }
     }
 }

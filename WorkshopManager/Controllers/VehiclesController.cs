@@ -9,23 +9,20 @@ using WorkshopManager.Models;
 namespace WorkshopManager.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class VehiclesController : ControllerBase
     {
-        private readonly ILogger<UsersController> _logger;
+        private readonly WorkshopManager_DBContext _context;
 
-        public VehiclesController(ILogger<UsersController> logger)
+        public VehiclesController(WorkshopManager_DBContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         [HttpGet]
-        public IEnumerable<Vehicles> Get()
+        public IEnumerable<TblVehicle> Get()
         {
-            using (var context = new WorkshopManager_DBContext())
-            {
-                return context.TblVehicles.ToList();
-            }
+            return _context.TblVehicles.ToList();
         }
     }
 }

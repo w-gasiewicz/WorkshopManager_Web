@@ -5,16 +5,16 @@ using System.Collections.Generic;
 
 namespace WorkshopManager.Models
 {
-    public partial class Roles
+    public partial class TblRole
     {
-        public Roles()
+        public TblRole()
         {
-            TblUsers = new HashSet<Users>();
+            TblUsers = new HashSet<TblUser>();
         }
 
         public int Id { get; set; }
         public string RoleName { get; set; }
 
-        public virtual ICollection<Users> TblUsers { get; set; }
+        public virtual ICollection<TblUser> TblUsers { get; set; }
     }
 }

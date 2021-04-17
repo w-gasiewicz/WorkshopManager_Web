@@ -7,23 +7,20 @@ using WorkshopManager.Models;
 namespace WorkshopManager.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly ILogger<UsersController> _logger;
+        private readonly WorkshopManager_DBContext _context;
 
-        public UsersController(ILogger<UsersController> logger)
+        public UsersController(WorkshopManager_DBContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         [HttpGet]
-        public IEnumerable<Users> Get()
+        public IEnumerable<TblUser> Get()
         {
-            using (var context = new WorkshopManager_DBContext())
-            {
-                return context.TblUsers.ToList();
-            }
+            return _context.TblUsers.ToList();
         }
     }
 }

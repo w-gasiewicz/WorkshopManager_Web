@@ -17,10 +17,10 @@ namespace WorkshopManager.Models
         {
         }
 
-        public virtual DbSet<Roles> TblRoles { get; set; }
-        public virtual DbSet<Users> TblUsers { get; set; }
-        public virtual DbSet<Vehicles> TblVehicles { get; set; }
-        public virtual DbSet<Works> TblWorks { get; set; }
+        public virtual DbSet<TblRole> TblRoles { get; set; }
+        public virtual DbSet<TblUser> TblUsers { get; set; }
+        public virtual DbSet<TblVehicle> TblVehicles { get; set; }
+        public virtual DbSet<TblWork> TblWorks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -34,7 +34,7 @@ namespace WorkshopManager.Models
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Polish_CI_AS");
 
-            modelBuilder.Entity<Roles>(entity =>
+            modelBuilder.Entity<TblRole>(entity =>
             {
                 entity.ToTable("tbl_ROLES");
 
@@ -47,7 +47,7 @@ namespace WorkshopManager.Models
                     .IsFixedLength(true);
             });
 
-            modelBuilder.Entity<Users>(entity =>
+            modelBuilder.Entity<TblUser>(entity =>
             {
                 entity.ToTable("tbl_USERS");
 
@@ -84,7 +84,7 @@ namespace WorkshopManager.Models
                     .HasConstraintName("FK_tbl_USERS_tbl_ROLES");
             });
 
-            modelBuilder.Entity<Vehicles>(entity =>
+            modelBuilder.Entity<TblVehicle>(entity =>
             {
                 entity.ToTable("tbl_VEHICLES");
 
@@ -115,7 +115,7 @@ namespace WorkshopManager.Models
                     .HasColumnName("YEAR_OF_PRODUCTION");
             });
 
-            modelBuilder.Entity<Works>(entity =>
+            modelBuilder.Entity<TblWork>(entity =>
             {
                 entity.ToTable("tbl_WORK");
 

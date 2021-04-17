@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WorkshopManager.Models;
 
 namespace WorkshopManager
 {
@@ -28,7 +30,11 @@ namespace WorkshopManager
         {
 
             services.AddControllers();
-            
+
+            //dbcontext
+            services.AddDbContext<WorkshopManager_DBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("WorkshopManager_DB")));
+
+            //swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WorkshopManager", Version = "v1" });
