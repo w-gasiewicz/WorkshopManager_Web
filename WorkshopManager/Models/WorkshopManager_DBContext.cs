@@ -17,6 +17,7 @@ namespace WorkshopManager.Models
         {
         }
 
+        public virtual DbSet<TblClient> TblClients { get; set; }
         public virtual DbSet<TblRole> TblRoles { get; set; }
         public virtual DbSet<TblUser> TblUsers { get; set; }
         public virtual DbSet<TblVehicle> TblVehicles { get; set; }
@@ -33,6 +34,43 @@ namespace WorkshopManager.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Polish_CI_AS");
+
+            modelBuilder.Entity<TblClient>(entity =>
+            {
+                entity.ToTable("tbl_CLIENTS");
+
+                entity.Property(e => e.City)
+                    .IsRequired()
+                    .HasMaxLength(64)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.CompanyName)
+                    .HasMaxLength(64)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(64)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Nip)
+                    .HasMaxLength(10)
+                    .HasColumnName("NIP")
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.PostalCode)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Street)
+                    .IsRequired()
+                    .HasMaxLength(64)
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.Surname)
+                    .HasMaxLength(64)
+                    .IsFixedLength(true);
+            });
 
             modelBuilder.Entity<TblRole>(entity =>
             {
@@ -90,6 +128,8 @@ namespace WorkshopManager.Models
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
+                entity.Property(e => e.ClientId).HasColumnName("CLIENT_ID");
+
                 entity.Property(e => e.Make)
                     .HasMaxLength(64)
                     .HasColumnName("MAKE")
@@ -113,6 +153,12 @@ namespace WorkshopManager.Models
                 entity.Property(e => e.YearOfProduction)
                     .HasColumnType("date")
                     .HasColumnName("YEAR_OF_PRODUCTION");
+
+                entity.HasOne(d => d.Client)
+                    .WithMany(p => p.TblVehicles)
+                    .HasForeignKey(d => d.ClientId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tbl_CLIENTS_tbl_VEHICLES");
             });
 
             modelBuilder.Entity<TblWork>(entity =>

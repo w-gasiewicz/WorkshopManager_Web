@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using WorkshopManager.Models;
 
 namespace WorkshopManager.Controllers
@@ -18,9 +20,16 @@ namespace WorkshopManager.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<TblUser> Get()
+        public async Task<ActionResult<IEnumerable<TblUser>>> GetUsers()
         {
-            return _context.TblUsers.ToList();
+            return await _context.TblUsers.ToListAsync();
+        }
+
+        [HttpGet("GetUser/{id}")]
+        public async Task<ActionResult<TblUser>> GetUser(int id)
+        {
+            var user = await _context.TblUsers.Where(u => u.Id == id).FirstOrDefaultAsync();
+            return user == null ? NotFound() : user;
         }
     }
 }

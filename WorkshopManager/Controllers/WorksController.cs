@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using WorkshopManager.Models;
 
 namespace WorkshopManager.Controllers
@@ -18,9 +20,33 @@ namespace WorkshopManager.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<TblWork> Get()
+        public async Task<ActionResult<IEnumerable<TblWork>>> GetWokrs()
         {
-            return _context.TblWorks.ToList();
+            return await _context.TblWorks.ToListAsync();
+        }
+
+        [HttpGet("GetOngoingWorks")]
+        public async Task<ActionResult<IEnumerable<TblWork>>> GetOngoingWokrs()
+        {
+            return await _context.TblWorks.Where(w => w.StartDate != null && w.EndDate == null).ToListAsync();
+        }
+
+        [HttpGet("GetEndedWorks")]
+        public async Task<ActionResult<IEnumerable<TblWork>>> GetFinishedWokrs()
+        {
+            return await _context.TblWorks.Where(w => w.EndDate != null).ToListAsync();
+        }
+
+        [HttpGet("GetWorksForVehicle/{vehicleId}")]
+        public async Task<ActionResult<IEnumerable<TblWork>>> GetWokrsForVehicle(int carId)
+        {
+            return await _context.TblWorks.Where(w => w.VehicleId == carId).ToListAsync();
+        }
+
+        [HttpGet("GetWorksForUser/{userId}")]
+        public async Task<ActionResult<IEnumerable<TblWork>>> GetWokrsForUsers(int userId)
+        {
+            return await _context.TblWorks.Where(w => w.UserId == userId).ToListAsync();
         }
     }
 }

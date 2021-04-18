@@ -18,7 +18,9 @@ namespace WorkshopManager.Models
         public string PlateNumber { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
+        public int ClientId { get; set; }
 
+        public virtual TblClient Client { get; set; }
         public virtual ICollection<TblWork> TblWorks { get; set; }
     }
 }

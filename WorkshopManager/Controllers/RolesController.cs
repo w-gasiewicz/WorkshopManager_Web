@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,16 @@ namespace WorkshopManager.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<TblRole> Get()
+        public async Task<ActionResult<IEnumerable<TblRole>>> GetRoles()
         {
-            return _context.TblRoles.ToList();
+            return await _context.TblRoles.ToListAsync();
+        }
+
+        [HttpGet("GetRole/{roleName}")]
+        public async Task<ActionResult<TblRole>> GetRole(string roleName)
+        {
+            var role = await _context.TblRoles.Where(u => u.RoleName == roleName).FirstOrDefaultAsync();
+            return role == null ? NotFound() : role;
         }
     }
 }

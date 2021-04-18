@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,16 @@ namespace WorkshopManager.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<TblVehicle> Get()
+        public async Task<ActionResult<IEnumerable<TblVehicle>>> GetVehicles()
         {
-            return _context.TblVehicles.ToList();
+            return await _context.TblVehicles.ToListAsync();
+        }
+
+        [HttpGet("GetVehicle/{id}")]
+        public async Task<ActionResult<TblVehicle>> GetVehicle(int id)
+        {
+            var vahicle = await _context.TblVehicles.Where(u => u.Id == id).FirstOrDefaultAsync();
+            return vahicle == null ? NotFound() : vahicle;
         }
     }
 }
