@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace WorkshopManager.Models
+namespace WorkshopManager_API.Models
 {
     public partial class WorkshopManager_DBContext : DbContext
     {

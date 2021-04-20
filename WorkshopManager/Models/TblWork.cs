@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace WorkshopManager.Models
+namespace WorkshopManager_API.Models
 {
     public partial class TblWork
     {

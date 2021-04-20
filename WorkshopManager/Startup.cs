@@ -12,9 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WorkshopManager.Models;
+using WorkshopManager_API.Models;
 
-namespace WorkshopManager
+namespace WorkshopManager_API
 {
     public class Startup
     {
@@ -37,7 +37,7 @@ namespace WorkshopManager
             //swagger
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WorkshopManager", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WorkshopManager_API", Version = "v1" });
             });
         }
 
@@ -48,7 +48,7 @@ namespace WorkshopManager
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WorkshopManager v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WorkshopManager_API v1"));
             }
 
             app.UseHttpsRedirection();

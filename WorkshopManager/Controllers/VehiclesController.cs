@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WorkshopManager.Models;
+using WorkshopManager_API.Models;
 
-namespace WorkshopManager.Controllers
+namespace WorkshopManager_API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -29,8 +29,29 @@ namespace WorkshopManager.Controllers
         [HttpGet("GetVehicle/{id}")]
         public async Task<ActionResult<TblVehicle>> GetVehicle(int id)
         {
-            var vahicle = await _context.TblVehicles.Where(u => u.Id == id).FirstOrDefaultAsync();
+            var vahicle = await _context.TblVehicles.Where(v => v.Id == id).FirstOrDefaultAsync();
             return vahicle == null ? NotFound() : vahicle;
+        }
+
+        // POST api/<VehiclesController>
+        [HttpPost]
+        public void Post([FromBody] string value)
+        {
+
+        }
+
+        // PUT api/<VehiclesController>/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] string value)
+        {
+
+        }
+
+        // DELETE api/<VehiclesController>/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+
         }
     }
 }
