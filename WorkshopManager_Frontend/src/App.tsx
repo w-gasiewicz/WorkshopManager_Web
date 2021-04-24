@@ -1,6 +1,7 @@
 import { Route } from 'react-router';
 import { Login } from './views/Login';
 import './styles/App.css';
+import { Contact } from './views/Contact';
 
 function App() {
   return (
@@ -20,7 +21,10 @@ function App() {
     //     </a>
     //   </header> */}
     // </div>
+    <div>
     <Route exact path='/' component={Login} />
+    <Route exact path='/contact' component={Contact} />
+    </div>
   );
 }
 

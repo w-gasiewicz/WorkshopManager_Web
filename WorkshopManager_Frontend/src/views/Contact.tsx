@@ -1,17 +1,17 @@
 import { Component } from 'react';
-import '../styles/Login.css';
+import '../styles/Contact.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-export class Login extends Component {
-  static displayName = Login.name;
+export class Contact extends Component {
+    static displayName = Contact.name;
 
     render() {
         return (
-            <div className="login-container">
-                <div className="form-box">
+            <div className="contact-container">
+                <div className="form-box-contact">
                     <div className="header-form">
-                        <h4 className="text-primary text-center"><i className="fa fa-user-circle" style={{ fontSize: "110px" }}></i></h4>
+                        <h4 className="text-primary text-center"><i className="fa fa-envelope" style={{ fontSize: "110px" }}></i></h4>
                         <div className="image">
                         </div>
                     </div>
@@ -21,19 +21,21 @@ export class Login extends Component {
                                 <div className="input-group-prepend">
                                     <span className="input-group-text"><i className="fa fa-user"></i></span>
                                 </div>
-                                <input type="text" className="form-control" placeholder="Username" />
+                                <input type="text" className="form-control" placeholder="Subject" />
                             </div>
                             <div className="input-group mb-3">
                                 <div className="input-group-prepend">
-                                    <span className="input-group-text"><i className="fa fa-lock"></i></span>
+                                    <span className="input-group-text"><i className="fa fa-at"></i></span>
                                 </div>
-                                <input type="text" className="form-control" placeholder="Password" />
+                                <input type="text" className="form-control" placeholder="Your email" />
                             </div>
-                            <button type="button" className="btn btn-secondary btn-block">LOGIN</button>
-                            <div className="message">
-                                <div><input type="checkbox" /> Remember ME</div>
-                                <div><a href="#">Forgot your password</a></div>
+                            <div className="input-group mb-3">
+                                <div className="input-group-prepend">
+                                    <span className="input-group-text"><i className="fa fa-comment-dots"></i></span>
+                                </div>
+                                <textarea className="form-control" rows={3} placeholder="Message" required></textarea>
                             </div>
+                            <button type="button" className="btn btn-secondary btn-block">Send</button>
                         </form>
                         <div className="social">
                             <a href="#"><i className="fab fa-facebook"></i></a>
