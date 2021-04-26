@@ -4,7 +4,31 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export class Login extends Component {
-  static displayName = Login.name;
+  static displayName = Login.name;  
+  constructor(props) {
+    super(props)
+    this.state = { username: '', password: '', showAllert: false, loggedIn: false }
+    this.handleChangeUsername = this.handleChangeUsername.bind(this);
+    this.handleChangePassword = this.handleChangePassword.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+  }
+
+  async populateData() {
+    const response = await fetch('https://api.ratesapi.io/api/2021-04-01' /*+ this.state.date*/ + '?base=PLN');
+    const data = await response.json();
+    console.log(data);
+    //this.setState({ values: data, loading: false });
+}
+
+  handleChangeUsername = (e) => {
+    this.setState({ username: e.currentTarget.value });
+  }
+  handleChangePassword = (e) => {
+    this.setState({ password: e.currentTarget.value });
+  }  
+  handleLogin = () => {
+    this.populateData();
+  }
 
     render() {
         return (
@@ -21,15 +45,15 @@ export class Login extends Component {
                                 <div className="input-group-prepend">
                                     <span className="input-group-text"><i className="fa fa-user"></i></span>
                                 </div>
-                                <input type="text" className="form-control" placeholder="Username" />
+                                <input type="text" className="form-control" placeholder="Username" onChange={this.handleChangeUsername}/>
                             </div>
                             <div className="input-group mb-3">
                                 <div className="input-group-prepend">
                                     <span className="input-group-text"><i className="fa fa-lock"></i></span>
                                 </div>
-                                <input type="text" className="form-control" placeholder="Password" />
+                                <input type="text" className="form-control" placeholder="Password" onChange={this.handleChangePassword}/>
                             </div>
-                            <button type="button" className="btn btn-secondary btn-block">LOGIN</button>
+                            <button type="button" className="btn btn-secondary btn-block" onClick = {this.handleLogin}>LOGIN</button>
                             <div className="message">
                                 <div><input type="checkbox" /> Remember ME</div>
                                 <div><a href="#">Forgot your password</a></div>
@@ -46,3 +70,4 @@ export class Login extends Component {
         )
     }
 }
+export default Login;
