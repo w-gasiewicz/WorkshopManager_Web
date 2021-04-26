@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/WorkshopManager_Web/static/css/main.5cf7ce54.chunk.css",
+    "main.js": "/WorkshopManager_Web/static/js/main.e3289526.chunk.js",
+    "main.js.map": "/WorkshopManager_Web/static/js/main.e3289526.chunk.js.map",
+    "runtime-main.js": "/WorkshopManager_Web/static/js/runtime-main.0f0fe229.js",
+    "runtime-main.js.map": "/WorkshopManager_Web/static/js/runtime-main.0f0fe229.js.map",
+    "static/css/2.5e085a59.chunk.css": "/WorkshopManager_Web/static/css/2.5e085a59.chunk.css",
+    "static/js/2.836c6838.chunk.js": "/WorkshopManager_Web/static/js/2.836c6838.chunk.js",
+    "static/js/2.836c6838.chunk.js.map": "/WorkshopManager_Web/static/js/2.836c6838.chunk.js.map",
+    "static/js/3.bfbddb77.chunk.js": "/WorkshopManager_Web/static/js/3.bfbddb77.chunk.js",
+    "static/js/3.bfbddb77.chunk.js.map": "/WorkshopManager_Web/static/js/3.bfbddb77.chunk.js.map",
+    "index.html": "/WorkshopManager_Web/index.html",
+    "static/css/2.5e085a59.chunk.css.map": "/WorkshopManager_Web/static/css/2.5e085a59.chunk.css.map",
+    "static/css/main.5cf7ce54.chunk.css.map": "/WorkshopManager_Web/static/css/main.5cf7ce54.chunk.css.map",
+    "static/js/2.836c6838.chunk.js.LICENSE.txt": "/WorkshopManager_Web/static/js/2.836c6838.chunk.js.LICENSE.txt",
+    "static/media/all.min.css": "/WorkshopManager_Web/static/media/fa-solid-900.efbd5d20.eot",
+    "static/media/logo.6ce24c58.svg": "/WorkshopManager_Web/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0f0fe229.js",
+    "static/css/2.5e085a59.chunk.css",
+    "static/js/2.836c6838.chunk.js",
+    "static/css/main.5cf7ce54.chunk.css",
+    "static/js/main.e3289526.chunk.js"
+  ]
+}
