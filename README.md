@@ -1,5 +1,5 @@
 # WorkshopManager_Web
-mssql + .net core web + react, redux, typescript app to management of car workshop
+mssql + .net core web + react, redux, javascript app to management of car workshop
 
 # API - swagger
 ![api](https://user-images.githubusercontent.com/25565263/115160221-616d7000-a097-11eb-892c-bc89f530e515.gif)
