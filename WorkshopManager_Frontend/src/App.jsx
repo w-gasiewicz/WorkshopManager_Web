@@ -7,19 +7,10 @@ import ParticlesConfig from './configs/ParticlesConfig';
 import logo from './logo.svg';
 
 function App() {
-  //return (
-  //   <div style={{ position: 'relative', overflow: "hidden" }}>
-  //     <div style={{ position: 'absolute' }}>
-  //       <Particles height="100vh" width="100vw" params={ParticlesConfig} />
-  //     </div>
-  //     <Route exact path='/' component={Login} />
-  //     <Route exact path='/contact' component={Contact} />
-  //   </div>
-  // );
   return (
-    <div>
+    <div className="App" style={{ position: 'relative', overflow: "hidden" }}>
       <div style={{ position: 'absolute' }}>
-        <Particles params={ParticlesConfig} />
+        <Particles height="100vh" width="100vw" params={ParticlesConfig} />
       </div>
       <header className="App-header">
         <Route exact path='/' component={Login} />
