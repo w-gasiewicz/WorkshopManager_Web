@@ -60,6 +60,8 @@ export class Login extends Component {
                             </div>
                         </form>
                         <div className="social">
+                            <a href="https://github.com/w-gasiewicz"><i className="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/wojciech-gasiewicz/"><i className="fab fa-linkedin"></i></a>
                             <a href="#"><i className="fab fa-facebook"></i></a>
                             <a href="#"><i className="fab fa-twitter-square"></i></a>
                             <a href="#"><i className="fab fa-google"></i></a>
