@@ -2,7 +2,7 @@
   "name": "hello-world",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://w-gasiewicz.github.io/WorkshopManager_Web/WorkshopManager_Frontend/src/",
+  "homepage":"https://w-gasiewicz.github.io/WorkshopManager_Web/",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@testing-library/jest-dom": "^5.11.10",
