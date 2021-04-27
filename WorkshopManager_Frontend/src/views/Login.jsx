@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import '../styles/Login.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -13,6 +14,9 @@ export class Login extends Component {
         this.handleLogin = this.handleLogin.bind(this);
     }
 
+    componentDidMount() {
+        this.setState({ loggedIn: false });
+    }
     async populateData() {
         const response = await fetch('https://api.ratesapi.io/api/2021-04-01' /*+ this.state.date*/ + '?base=PLN');
         const data = await response.json();
@@ -28,11 +32,16 @@ export class Login extends Component {
     }
     handleLogin = () => {
         this.populateData();
+        this.setState({ loggedIn: true });
     }
 
     render() {
         return (
             <div className="login-container">
+                {
+                    this.state.loggedIn ?
+                        < Redirect exact to="/WorkshopManager_Web/WijmoGrid" /> : null
+                }
                 <div className="form-box">
                     <div className="header-form">
                         <h4 className="text-primary text-center"><i className="fa fa-user-circle" style={{ fontSize: "110px" }}></i></h4>

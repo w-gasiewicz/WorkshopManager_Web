@@ -1,10 +1,11 @@
 {
-  "name": "hello-world",
+  "name": "WorkshopManager_Web",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://w-gasiewicz.github.io/WorkshopManager_Web/",
+  "homepage": "https://w-gasiewicz.github.io/WorkshopManager_Web/",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
+    "@grapecity/wijmo.all": "^5.20211.781",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
@@ -16,6 +17,7 @@
     "@types/react-dom": "^17.0.3",
     "bootstrap": "^4.6.0",
     "gh-pages": "^3.1.0",
+    "jszip": "^3.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-particles-js": "^3.4.1",

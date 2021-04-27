@@ -1,4 +1,4 @@
-.contact-container {
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,8 +7,8 @@
 }
 
 .form-box-contact {
-    width: 380px;
-    height: 550px;
+    width: 100%;
+    height: 100%;
     background-color: black;
     padding: 20px;
     display: flex;

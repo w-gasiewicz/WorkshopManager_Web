@@ -1,11 +1,14 @@
-import { Route } from 'react-router';
+import { Route, Router } from 'react-router';
+import { createBrowserHistory } from "history";
 import { Login } from './views/Login';
-import './styles/App.css';
 import { Contact } from './views/Contact';
+import { AnalyticsView } from './views/AnalyticsView';
+import { WijmoGrid } from './components/WijmoGrid';
+import './styles/App.css';
 import Particles from 'react-particles-js';
 import ParticlesConfig from './configs/ParticlesConfig';
-import logo from './logo.svg';
 
+let history = createBrowserHistory();
 function App() {
   return (
     <div className="App" style={{ position: 'relative', overflow: "hidden" }}>
@@ -13,8 +16,13 @@ function App() {
         <Particles height="100vh" width="100vw" params={ParticlesConfig} />
       </div>
       <header className="App-header">
-        <Route exact path='/' component={Login} />
-        <Route exact path='/contact' component={Contact} />
+        <Router history = {history}>
+          <Route exact path='/' component={Login} />
+          <Route exact path='/WorkshopManager_Web/' component={Login} />
+          <Route exact path='/Contact' component={Contact} />
+          <Route exact path='/AnalyticsView' component={AnalyticsView} />
+          <Route exact path='/WorkshopManager_Web/WijmoGrid' component={WijmoGrid} />
+        </Router>
       </header>
     </div>
   );
