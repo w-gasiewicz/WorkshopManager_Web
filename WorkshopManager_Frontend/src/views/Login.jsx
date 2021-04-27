@@ -71,9 +71,9 @@ export class Login extends Component {
                         <div className="social">
                             <a href="https://github.com/w-gasiewicz"><i className="fab fa-github"></i></a>
                             <a href="https://www.linkedin.com/in/wojciech-gasiewicz/"><i className="fab fa-linkedin"></i></a>
-                            <a href="#"><i className="fab fa-facebook"></i></a>
-                            <a href="#"><i className="fab fa-twitter-square"></i></a>
-                            <a href="#"><i className="fab fa-google"></i></a>
+                            <a href="#" target="_blank"><i className="fab fa-facebook"></i></a>
+                            <a href="#" target="_blank"><i className="fab fa-twitter-square"></i></a>
+                            <a href="#" target="_blank"><i className="fab fa-google"></i></a>
                         </div>
                     </div>
                 </div>

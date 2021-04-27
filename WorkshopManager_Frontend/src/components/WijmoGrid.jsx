@@ -3,7 +3,6 @@ import '@grapecity/wijmo.styles/wijmo.css';
 import '../styles/WijmoGrid.css';
 //
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 //
 import '@grapecity/wijmo.touch';
 import * as wjCore from '@grapecity/wijmo';
