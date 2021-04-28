@@ -26,6 +26,16 @@
     display: inline-block;
 }
 
+.row-buttons-menu{
+    display: inline-flex;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.btn{
+    margin: 0.5em;
+}
+
 .toolbar-item {
     margin: 0.5em;
 }

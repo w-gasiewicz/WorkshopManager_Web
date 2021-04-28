@@ -15,6 +15,9 @@ import { FlexGridSearch } from '@grapecity/wijmo.react.grid.search';
 import { GroupPanel as FlexGridGroupPanel } from '@grapecity/wijmo.react.grid.grouppanel';
 import { DataService, Country, KeyValue } from '../configs/Data';
 import { ExportService } from '../services/Export';
+import { AddItemDragablePopup } from './AddItemDragablePopup';
+import { EditItemDragablePopup } from './EditItemDragablePopup';
+import { DeleteItemDragablePopup } from './DeleteItemDragablePopup';
 //
 const dataService = new DataService();
 const exportService = new ExportService();
@@ -122,6 +125,8 @@ export class WijmoGrid extends React.Component {
             isExcelPreparing: false,
             isExcelExporting: false,
             excelProgress: 0,
+            popup: {},
+            showAddPopup: false
         };
         this.theGrid = React.createRef();
         this.theSearch = React.createRef();
@@ -165,8 +170,8 @@ export class WijmoGrid extends React.Component {
     //
     render() {
         return (<div className="container-grid">
-        <div className="border">
-            <div className="row">
+            <div className="border">
+                <div className="row">
                     <div className="col-sm-3 col-md-5">
                         <FlexGridSearch ref={this.theSearch} placeholder="Search" cssMatch="" />
                     </div>
@@ -183,6 +188,11 @@ export class WijmoGrid extends React.Component {
                                 <option value="100000">100,000</option>
                             </select>
                         </div>
+                    </div>
+                    <div className="row-buttons-menu">
+                        <AddItemDragablePopup />
+                        <EditItemDragablePopup />
+                        <DeleteItemDragablePopup />
                     </div>
                 </div>
             </div>
