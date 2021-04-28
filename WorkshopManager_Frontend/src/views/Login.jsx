@@ -62,7 +62,7 @@ export class Login extends Component {
                                 </div>
                                 <input type="text" className="form-control" placeholder="Password" onChange={this.handleChangePassword} />
                             </div>
-                            <button type="button" className="btn btn-secondary btn-block" onClick={this.handleLogin}>LOGIN</button>
+                            <button type="button" className="btn btn-secondary btn-block" style={{ margin: 0 }} onClick={this.handleLogin}>LOGIN</button>
                             <div className="message">
                                 <div><input type="checkbox" /> Remember ME</div>
                                 <div><a href="#">Forgot your password</a></div>

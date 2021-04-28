@@ -10,6 +10,7 @@ import ParticlesConfig from './configs/ParticlesConfig';
 
 let history = createBrowserHistory();
 function App() {
+  history.push('/');
   return (
     <div className="App" style={{ position: 'relative', overflow: "hidden" }}>
       <div style={{ position: 'absolute' }}>
