@@ -229,6 +229,7 @@ export class WijmoGrid extends React.Component {
                 </button>
 
                 <button className="btn btn-warning mr-1" onClick={this.exportToPdf}>Export To PDF</button>
+                <button className="btn btn-warning mr-1" >Show chart</button>
             </div>
         </div>
         );

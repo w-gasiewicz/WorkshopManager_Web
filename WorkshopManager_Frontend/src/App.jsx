@@ -1,16 +1,14 @@
 import { Route, Router } from 'react-router';
-import { createBrowserHistory } from "history";
 import { Login } from './views/Login';
 import { Contact } from './views/Contact';
 import { AnalyticsView } from './views/AnalyticsView';
 import { WijmoGrid } from './components/WijmoGrid';
+import history from './services/History';
 import './styles/App.css';
 import Particles from 'react-particles-js';
 import ParticlesConfig from './configs/ParticlesConfig';
 
-let history = createBrowserHistory();
 function App() {
-  history.push('/');
   return (
     <div className="App" style={{ position: 'relative', overflow: "hidden" }}>
       <div style={{ position: 'absolute' }}>

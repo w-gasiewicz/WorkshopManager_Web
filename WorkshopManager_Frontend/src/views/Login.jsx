@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import history from '../services/History';
 import '../styles/Login.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -32,6 +33,7 @@ export class Login extends Component {
     }
     handleLogin = () => {
         this.populateData();
+        history.push('/WorkshopManager_Web/WijmoGrid');
         this.setState({ loggedIn: true });
     }
 
