@@ -18,6 +18,7 @@ import { ExportService } from '../services/Export';
 import { AddItemDragablePopup } from './AddItemDragablePopup';
 import { EditItemDragablePopup } from './EditItemDragablePopup';
 import { DeleteItemDragablePopup } from './DeleteItemDragablePopup';
+import HamburgerMenu from './HamburgerMenu';
 //
 const dataService = new DataService();
 const exportService = new ExportService();
@@ -169,69 +170,73 @@ export class WijmoGrid extends React.Component {
     }
     //
     render() {
-        return (<div className="container-grid">
-            <div className="border">
-                <div className="row">
-                    <div className="col-sm-3 col-md-5">
-                        <FlexGridSearch ref={this.theSearch} placeholder="Search" cssMatch="" />
-                    </div>
+        return (
+            <div>
+                <HamburgerMenu />
+                <div className="container-grid">
+                    <div className="border">
+                        <div className="row">
+                            <div className="col-sm-3 col-md-5">
+                                <FlexGridSearch ref={this.theSearch} placeholder="Search" cssMatch="" />
+                            </div>
 
-                    <div className="toolbar-item col-sm-3 col-md-3">
-                        <div className="input-group">
-                            <span className="input-group-addon">Items:</span>
-                            <select className="form-control" value={this.state.itemsCount} onChange={this.itemsCountChanged}>
-                                <option value="5">5</option>
-                                <option value="50">50</option>
-                                <option value="500">500</option>
-                                <option value="5000">5,000</option>
-                                <option value="50000">50,000</option>
-                                <option value="100000">100,000</option>
-                            </select>
+                            <div className="toolbar-item col-sm-3 col-md-3">
+                                <div className="input-group">
+                                    <span className="input-group-addon">Items:</span>
+                                    <select className="form-control" value={this.state.itemsCount} onChange={this.itemsCountChanged}>
+                                        <option value="5">5</option>
+                                        <option value="50">50</option>
+                                        <option value="500">500</option>
+                                        <option value="5000">5,000</option>
+                                        <option value="50000">50,000</option>
+                                        <option value="100000">100,000</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="row-buttons-menu">
+                                <AddItemDragablePopup />
+                                <EditItemDragablePopup />
+                                <DeleteItemDragablePopup />
+                            </div>
                         </div>
                     </div>
-                    <div className="row-buttons-menu">
-                        <AddItemDragablePopup />
-                        <EditItemDragablePopup />
-                        <DeleteItemDragablePopup />
+
+                    <FlexGridGroupPanel grid={this.state.flex} placeholder={"Drag columns here to create groups"} />
+
+                    <FlexGrid ref={this.theGrid} autoGenerateColumns={false} allowAddNew allowDelete allowPinning="SingleColumn" showMarquee selectionMode="MultiRange" validateEdits={false} initialized={this.gridInitialized}>
+                        <FlexGridFilter />
+
+                        <FlexGridColumn header="ID" binding="id" width={90} isReadOnly={true} />
+                        <FlexGridColumn header="Date" binding="date" format="MMM d yyyy" isRequired={false} width={150} editor={this._dateEditor}>
+                        </FlexGridColumn>
+                        <FlexGridColumn header="Country" binding="countryId" dataMap={this.countryMap} width={145}>
+                            <FlexGridCellTemplate cellType="Cell" template={this.countryCellTemplate} />
+                        </FlexGridColumn>
+                        <FlexGridColumn header="Price" binding="price" format="c" isRequired={false} width={150} />
+                        <FlexGridColumn header="History" binding="history" align="center" width={250} allowSorting={false} cellTemplate={this.historyCellTemplate} />
+                        <FlexGridColumn header="Change" binding="change" align="right" width={155}>
+                            <FlexGridCellTemplate cellType="Cell" template={this.changeCellTemplate} />
+                        </FlexGridColumn>
+                        <FlexGridColumn header="Rating" binding="rating" align="center" width={180} cssClass="cell-rating" cellTemplate={this.ratingCellTemplate} />
+                        <FlexGridColumn header="Time" binding="time" format="HH:mm" isRequired={false} width={115} editor={this._timeEditor}>
+                        </FlexGridColumn>
+                        <FlexGridColumn header="Color" binding="colorId" dataMap={this.colorMap} width={150}>
+                            <FlexGridCellTemplate cellType="Cell" template={this.colorCellTemplate} />
+                        </FlexGridColumn>
+                        <FlexGridColumn header="Product" binding="productId" dataMap={this.productMap} width={150} />
+                        <FlexGridColumn header="Discount" binding="discount" format="p0" width={150} />
+                        <FlexGridColumn header="Active" binding="active" width={120} />
+                    </FlexGrid>
+                    <div className="row-buttons">
+                        <button className="btn btn-warning mr-1" disabled={this.state.isExcelPreparing} onClick={this.exportToExcel}>
+                            {this.state.isExcelExporting ? `Cancel (${this.state.excelProgress}% done)` : 'Export To Excel'}
+                        </button>
+
+                        <button className="btn btn-warning mr-1" onClick={this.exportToPdf}>Export To PDF</button>
+                        <button className="btn btn-warning mr-1" >Show chart</button>
                     </div>
                 </div>
             </div>
-
-            <FlexGridGroupPanel grid={this.state.flex} placeholder={"Drag columns here to create groups"} />
-
-            <FlexGrid ref={this.theGrid} autoGenerateColumns={false} allowAddNew allowDelete allowPinning="SingleColumn" showMarquee selectionMode="MultiRange" validateEdits={false} initialized={this.gridInitialized}>
-                <FlexGridFilter />
-
-                <FlexGridColumn header="ID" binding="id" width={90} isReadOnly={true} />
-                <FlexGridColumn header="Date" binding="date" format="MMM d yyyy" isRequired={false} width={150} editor={this._dateEditor}>
-                </FlexGridColumn>
-                <FlexGridColumn header="Country" binding="countryId" dataMap={this.countryMap} width={145}>
-                    <FlexGridCellTemplate cellType="Cell" template={this.countryCellTemplate} />
-                </FlexGridColumn>
-                <FlexGridColumn header="Price" binding="price" format="c" isRequired={false} width={150} />
-                <FlexGridColumn header="History" binding="history" align="center" width={250} allowSorting={false} cellTemplate={this.historyCellTemplate} />
-                <FlexGridColumn header="Change" binding="change" align="right" width={155}>
-                    <FlexGridCellTemplate cellType="Cell" template={this.changeCellTemplate} />
-                </FlexGridColumn>
-                <FlexGridColumn header="Rating" binding="rating" align="center" width={180} cssClass="cell-rating" cellTemplate={this.ratingCellTemplate} />
-                <FlexGridColumn header="Time" binding="time" format="HH:mm" isRequired={false} width={115} editor={this._timeEditor}>
-                </FlexGridColumn>
-                <FlexGridColumn header="Color" binding="colorId" dataMap={this.colorMap} width={150}>
-                    <FlexGridCellTemplate cellType="Cell" template={this.colorCellTemplate} />
-                </FlexGridColumn>
-                <FlexGridColumn header="Product" binding="productId" dataMap={this.productMap} width={150} />
-                <FlexGridColumn header="Discount" binding="discount" format="p0" width={150} />
-                <FlexGridColumn header="Active" binding="active" width={120} />
-            </FlexGrid>
-            <div className="row-buttons">
-                <button className="btn btn-warning mr-1" disabled={this.state.isExcelPreparing} onClick={this.exportToExcel}>
-                    {this.state.isExcelExporting ? `Cancel (${this.state.excelProgress}% done)` : 'Export To Excel'}
-                </button>
-
-                <button className="btn btn-warning mr-1" onClick={this.exportToPdf}>Export To PDF</button>
-                <button className="btn btn-warning mr-1" >Show chart</button>
-            </div>
-        </div>
         );
     }
     //

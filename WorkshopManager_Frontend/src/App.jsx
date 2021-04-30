@@ -7,6 +7,8 @@ import history from './services/History';
 import './styles/App.css';
 import Particles from 'react-particles-js';
 import ParticlesConfig from './configs/ParticlesConfig';
+import Info from './views/Info';
+import { RepairsView } from './views/RepairsView';
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
           <Route exact path='/' component={Login} />
           <Route exact path='/WorkshopManager_Web/' component={Login} />
           <Route exact path='/Contact' component={Contact} />
+          <Route exact path='/Info' component={Info} />
           <Route exact path='/AnalyticsView' component={AnalyticsView} />
+          <Route exact path='/Repairs' component={RepairsView} />
           <Route exact path='/WorkshopManager_Web/WijmoGrid' component={WijmoGrid} />
         </Router>
       </header>

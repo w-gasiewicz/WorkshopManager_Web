@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import history from '../services/History';
 import '../styles/HamburgerMenu.css';
 
 class HamburgerMenu extends React.Component {
@@ -32,7 +33,7 @@ class HamburgerMenu extends React.Component {
         background: 'black',
         width: '100%',
         color: 'white',
-        fontFamily: 'Lobster',
+        fontFamily: `'Open Sans', sans-serif`,
       },
       logo: {
         margin: '0 auto',
@@ -47,8 +48,8 @@ class HamburgerMenu extends React.Component {
         transition: 'filter 0.5s ease',
       },
     }
-    const menu = ['Log out', 'VIN decoder', 'Exchange rates', 'Info', 'Map']
-    const tos = ['/reactwebsite', '/vin-decoder', '/exchange-rates', '/info', '/map'];
+    const menu = ['Log out', 'Wijmo grid', 'Repairs', 'Info']
+    const tos = ['/', '/WorkshopManager_Web/WijmoGrid', '/Repairs', '/Info'];
     const menuItems = menu.map((val, index) => {
       return (
         <MenuItem
@@ -62,7 +63,7 @@ class HamburgerMenu extends React.Component {
       <div>
         <div style={styles.container}>
           <MenuButton open={this.state.menuOpen} onClick={() => this.handleMenuClick()} color='white' />
-          <div style={styles.logo}>React demo app</div>
+          <div style={styles.logo}>MENU</div>
         </div>
         <Menu open={this.state.menuOpen}>
           {menuItems}
