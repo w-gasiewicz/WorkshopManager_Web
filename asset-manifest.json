@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/WorkshopManager_Web/static/css/main.e130f7c0.chunk.css",
-    "main.js": "/WorkshopManager_Web/static/js/main.5e4b423e.chunk.js",
-    "main.js.map": "/WorkshopManager_Web/static/js/main.5e4b423e.chunk.js.map",
-    "runtime-main.js": "/WorkshopManager_Web/static/js/runtime-main.385999c9.js",
-    "runtime-main.js.map": "/WorkshopManager_Web/static/js/runtime-main.385999c9.js.map",
+    "main.css": "/WorkshopManager_Web/static/css/main.4692b618.chunk.css",
+    "main.js": "/WorkshopManager_Web/static/js/main.0318cb79.chunk.js",
+    "main.js.map": "/WorkshopManager_Web/static/js/main.0318cb79.chunk.js.map",
+    "runtime-main.js": "/WorkshopManager_Web/static/js/runtime-main.0916b5a5.js",
+    "runtime-main.js.map": "/WorkshopManager_Web/static/js/runtime-main.0916b5a5.js.map",
     "static/css/2.2d4d993d.chunk.css": "/WorkshopManager_Web/static/css/2.2d4d993d.chunk.css",
-    "static/js/2.52a04c92.chunk.js": "/WorkshopManager_Web/static/js/2.52a04c92.chunk.js",
-    "static/js/2.52a04c92.chunk.js.map": "/WorkshopManager_Web/static/js/2.52a04c92.chunk.js.map",
-    "static/js/3.ee1e37fb.chunk.js": "/WorkshopManager_Web/static/js/3.ee1e37fb.chunk.js",
-    "static/js/3.ee1e37fb.chunk.js.map": "/WorkshopManager_Web/static/js/3.ee1e37fb.chunk.js.map",
+    "static/js/2.51be85c9.chunk.js": "/WorkshopManager_Web/static/js/2.51be85c9.chunk.js",
+    "static/js/2.51be85c9.chunk.js.map": "/WorkshopManager_Web/static/js/2.51be85c9.chunk.js.map",
+    "static/js/3.6f1e966d.chunk.js": "/WorkshopManager_Web/static/js/3.6f1e966d.chunk.js",
+    "static/js/3.6f1e966d.chunk.js.map": "/WorkshopManager_Web/static/js/3.6f1e966d.chunk.js.map",
     "index.html": "/WorkshopManager_Web/index.html",
     "static/css/2.2d4d993d.chunk.css.map": "/WorkshopManager_Web/static/css/2.2d4d993d.chunk.css.map",
-    "static/css/main.e130f7c0.chunk.css.map": "/WorkshopManager_Web/static/css/main.e130f7c0.chunk.css.map",
-    "static/js/2.52a04c92.chunk.js.LICENSE.txt": "/WorkshopManager_Web/static/js/2.52a04c92.chunk.js.LICENSE.txt",
+    "static/css/main.4692b618.chunk.css.map": "/WorkshopManager_Web/static/css/main.4692b618.chunk.css.map",
+    "static/js/2.51be85c9.chunk.js.LICENSE.txt": "/WorkshopManager_Web/static/js/2.51be85c9.chunk.js.LICENSE.txt",
     "static/media/all.min.css": "/WorkshopManager_Web/static/media/fa-solid-900.efbd5d20.eot"
   },
   "entrypoints": [
-    "static/js/runtime-main.385999c9.js",
+    "static/js/runtime-main.0916b5a5.js",
     "static/css/2.2d4d993d.chunk.css",
-    "static/js/2.52a04c92.chunk.js",
-    "static/css/main.e130f7c0.chunk.css",
-    "static/js/main.5e4b423e.chunk.js"
+    "static/js/2.51be85c9.chunk.js",
+    "static/css/main.4692b618.chunk.css",
+    "static/js/main.0318cb79.chunk.js"
   ]
 }
