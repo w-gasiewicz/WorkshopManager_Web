@@ -9,6 +9,7 @@ import Particles from 'react-particles-js';
 import ParticlesConfig from './configs/ParticlesConfig';
 import Info from './views/Info';
 import { RepairsView } from './views/RepairsView';
+import { UserProfile } from './views/UserProfile';
 
 function App() {
   return (
@@ -20,11 +21,15 @@ function App() {
         <Router history = {history}>
           <Route exact path='/' component={Login} />
           <Route exact path='/WorkshopManager_Web/' component={Login} />
+
           <Route exact path='/Contact' component={Contact} />
           <Route exact path='/Info' component={Info} />
           <Route exact path='/AnalyticsView' component={AnalyticsView} />
           <Route exact path='/Repairs' component={RepairsView} />
           <Route exact path='/WorkshopManager_Web/WijmoGrid' component={WijmoGrid} />
+
+          <Route exact path='/user-profile' component={UserProfile} />
+          <Route exact path='/WorkshopManager_Web/user-profile' component={UserProfile} />
         </Router>
       </header>
     </div>

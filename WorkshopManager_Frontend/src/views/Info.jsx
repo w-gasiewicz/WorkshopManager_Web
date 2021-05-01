@@ -3,10 +3,6 @@ import HamburgerMenu from '../components/HamburgerMenu';
 import '../styles/Info.css';
 
 class Info extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
             <div>

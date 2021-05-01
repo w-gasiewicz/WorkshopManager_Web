@@ -4,16 +4,16 @@ import '../styles/Contact.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-export class Contact extends Component {
-    static displayName = Contact.name;
+export class UserProfile extends Component {
+    static displayName = UserProfile.name;
 
     render() {
         return (
             <div className="contact-container">
-                <HamburgerMenu/>
+            <HamburgerMenu/>
                 <div className="form-box-contact">
                     <div className="header-form">
-                        <h4 className="text-primary text-center"><i className="fa fa-envelope" style={{ fontSize: "110px" }}></i></h4>
+                        <h4 className="text-primary text-center"><i className="fa fa-user" style={{ fontSize: "110px" }}></i></h4>
                         <div className="image">
                         </div>
                     </div>
