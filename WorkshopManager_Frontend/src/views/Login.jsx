@@ -62,12 +62,12 @@ export class Login extends Component {
                                 <div className="input-group-prepend">
                                     <span className="input-group-text"><i className="fa fa-lock"></i></span>
                                 </div>
-                                <input type="text" className="form-control" placeholder="Password" onChange={this.handleChangePassword} />
+                                <input type="password" className="form-control" placeholder="Password" onChange={this.handleChangePassword} />
                             </div>
                             <button type="button" className="btn btn-secondary btn-block" style={{ margin: 0 }} onClick={this.handleLogin}>LOGIN</button>
                             <div className="message">
-                                <div><input type="checkbox" /> Remember ME</div>
-                                <div><a href="#">Forgot your password</a></div>
+                                <div><a href="#">Forgot your password?</a></div>
+                                <div><a href="/WorkshopManager_Web/Registration">Create new account</a></div>
                             </div>
                         </form>
                         <div className="social">

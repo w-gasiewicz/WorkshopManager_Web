@@ -9,6 +9,7 @@ namespace WorkshopManager_API.Models
     {
         public TblUser()
         {
+            TblRefreshTokens = new HashSet<TblRefreshToken>();
             TblWorks = new HashSet<TblWork>();
         }
 
@@ -20,6 +21,7 @@ namespace WorkshopManager_API.Models
         public int RoleId { get; set; }
 
         public virtual TblRole Role { get; set; }
+        public virtual ICollection<TblRefreshToken> TblRefreshTokens { get; set; }
         public virtual ICollection<TblWork> TblWorks { get; set; }
     }
 }

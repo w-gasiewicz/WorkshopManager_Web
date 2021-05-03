@@ -18,6 +18,7 @@ namespace WorkshopManager_API.Models
         }
 
         public virtual DbSet<TblClient> TblClients { get; set; }
+        public virtual DbSet<TblRefreshToken> TblRefreshTokens { get; set; }
         public virtual DbSet<TblRole> TblRoles { get; set; }
         public virtual DbSet<TblUser> TblUsers { get; set; }
         public virtual DbSet<TblVehicle> TblVehicles { get; set; }
@@ -70,6 +71,31 @@ namespace WorkshopManager_API.Models
                 entity.Property(e => e.Surname)
                     .HasMaxLength(64)
                     .IsFixedLength(true);
+            });
+
+            modelBuilder.Entity<TblRefreshToken>(entity =>
+            {
+                entity.ToTable("tbl_REFRESH_TOKENS");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.ExpiryDate)
+                    .HasColumnType("date")
+                    .HasColumnName("EXPIRY_DATE");
+
+                entity.Property(e => e.Token)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("TOKEN");
+
+                entity.Property(e => e.UserId).HasColumnName("USER_ID");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.TblRefreshTokens)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tbl_USERS_tbl_REFRESH_TOKENS");
             });
 
             modelBuilder.Entity<TblRole>(entity =>
