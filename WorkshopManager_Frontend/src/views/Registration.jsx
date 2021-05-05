@@ -9,7 +9,7 @@ export class Registration extends Component {
     static displayName = Registration.name;
     constructor(props) {
         super(props)
-        this.state = { Login: '', Password: '', Name:'', Surname:'', showAllert: false, loggedIn: false }
+        this.state = { Login: '', Password: '', Name: '', Surname: '', showAllert: false, loggedIn: false }
         this.handleChangeUsername = this.handleChangeUsername.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
         this.handleRegistration = this.handleRegistration.bind(this);
@@ -22,23 +22,26 @@ export class Registration extends Component {
     }
     async populateData() {
         const user = {
-            Login: this.state.Login,
-            Password: this.state.Password,
-            Name: this.state.Name,
-            Surname: this.state.Surname,
-            RoleId: 2
+            id: 0,
+            login: this.state.Login,
+            password: this.state.Password,
+            name: this.state.Name,
+            surname: this.state.Surname,
+            roleId: 2//User
         };
-        console.log(user);
+        console.log(JSON.stringify(user));
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/problem+json; charset=utf-8' },
-            body: JSON.stringify({ title: 'React PUT Request Example' }),
-            mode: 'no-cors',
-            data: user
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify(user),
+            mode: 'cors'//,
+            //data: JSON.stringify(user)
         };
-        // const response = await fetch('https://api.ratesapi.io/api/2021-04-01' /*+ this.state.date*/ + '?base=PLN');
         const response = await fetch('https://localhost:44349/api/Users/RegisterUser', requestOptions);
-        //const data = await response.json();
+        const data = await response.json();
         console.log(response);
         //this.setState({ values: data, loading: false });
     }
