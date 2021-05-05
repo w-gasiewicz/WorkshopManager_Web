@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import history from '../services/History';
 import '../styles/Login.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -67,7 +67,7 @@ export class Login extends Component {
                             <button type="button" className="btn btn-secondary btn-block" style={{ margin: 0 }} onClick={this.handleLogin}>LOGIN</button>
                             <div className="message">
                                 <div><a href="#">Forgot your password?</a></div>
-                                <div><a href="/WorkshopManager_Web/Registration">Create new account</a></div>
+                                <div><Link exact to="/WorkshopManager_Web/Registration">Create new account</Link></div>
                             </div>
                         </form>
                         <div className="social">
