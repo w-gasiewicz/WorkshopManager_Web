@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import { ForgetPasswordDragablePopup } from '../components/ForgetPasswordDragablePopup';
 import history from '../services/History';
 import '../styles/Login.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -66,7 +67,7 @@ export class Login extends Component {
                             </div>
                             <button type="button" className="btn btn-secondary btn-block" style={{ margin: 0 }} onClick={this.handleLogin}>LOGIN</button>
                             <div className="message">
-                                <div><a href="#">Forgot your password?</a></div>
+                                <div><ForgetPasswordDragablePopup /></div>
                                 <div><Link exact to="/WorkshopManager_Web/Registration">Create new account</Link></div>
                             </div>
                         </form>
