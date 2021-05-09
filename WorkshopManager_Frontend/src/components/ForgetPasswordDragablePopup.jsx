@@ -21,11 +21,11 @@ export class ForgetPasswordDragablePopup extends React.Component {
             <div className="container-fluid">
                 <Link onClick={() => this.state.frmLoginPopup.show(true)}>Forgot your password?</Link>
 
-                <wjInput.Popup isDraggable={true} initialized={this.initLoginForm}>
+                <wjInput.Popup isDraggable={true} initialized={this.initLoginForm} >
                     <form>
                         <div className="wj-dialog-header">
                             Generate new password
-                        <button type="button" className="close wj-hide">&times;</button>
+                        {/* <button type="button" className="close wj-hide">&times;</button> */}
                         </div>
                         <div className="modal-body">
                             <label>

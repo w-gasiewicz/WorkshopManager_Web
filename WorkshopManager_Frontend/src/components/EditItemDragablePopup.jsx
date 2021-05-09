@@ -27,7 +27,7 @@ export class EditItemDragablePopup extends React.Component {
                     <form>
                         <div className="wj-dialog-header">
                             Edit item
-                        <button type="button" className="close wj-hide">&times;</button>
+                        {/* <button type="button" className="close wj-hide">&times;</button> */}
                         </div>
                         <div className="modal-body">
                             <label>
