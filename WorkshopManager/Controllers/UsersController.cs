@@ -14,6 +14,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using WorkshopManager_API.Handlers;
 using WorkshopManager_API.Models;
 
 namespace WorkshopManager_API.Controllers
@@ -25,11 +26,13 @@ namespace WorkshopManager_API.Controllers
     {
         private readonly WorkshopManager_DBContext _context;
         private readonly JWTSettings _jwtsettings;
-
+        private readonly string _salt = "u!8sW%7(";
+        private Crypto _crypto;
         public UsersController(WorkshopManager_DBContext context, IOptions<JWTSettings> jwtsettings)
         {
             _context = context;
             _jwtsettings = jwtsettings.Value;
+            _crypto = new Crypto();
         }
 
         //[HttpPost("Login")]
@@ -101,6 +104,7 @@ namespace WorkshopManager_API.Controllers
         [HttpPost("RegisterUser")]
         public async Task<ActionResult<UserWithToken>> RegisterUser([FromBody] TblUser user)
         {
+            user.Password = _crypto.GenerateSaltedHash(Encoding.ASCII.GetBytes(user.Password), Encoding.ASCII.GetBytes(_salt));
             _context.TblUsers.Add(user);
             await _context.SaveChangesAsync();
 
@@ -150,11 +154,24 @@ namespace WorkshopManager_API.Controllers
 
         }
 
-        // DELETE api/<UsersController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // PUT api/<UsersController>/5
+        [HttpPatch("{id}")]
+        public void Patch(int id, [FromBody] string value)
         {
 
+        }
+
+        // DELETE api/<UsersController>/5
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<TblUser>> Delete(int id)
+        {
+            var user = await _context.TblUsers.Where(u => u.Id == id).FirstOrDefaultAsync();
+            
+            if (user == null) return NotFound();
+
+            _context.TblUsers.Remove(user);
+            await _context.SaveChangesAsync();
+            return user;
         }
         #region PRIVATE METHODS
         private TblRefreshToken GenerateRefreshToken()

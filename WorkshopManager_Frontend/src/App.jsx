@@ -11,6 +11,7 @@ import Info from './views/Info';
 import { RepairsView } from './views/RepairsView';
 import { UserProfile } from './views/UserProfile';
 import Registration from './views/Registration';
+import { UsersView } from './views/UsersView';
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
           <Route exact path='/WorkshopManager_Web/user-profile' component={UserProfile} />
 
           <Route exact path='/WorkshopManager_Web/Registration' component={Registration} />
+
+          <Route exact path='/Users' component={UsersView} />
         </Router>
       </header>
     </div>

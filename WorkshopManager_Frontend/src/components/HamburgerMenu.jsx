@@ -48,8 +48,8 @@ class HamburgerMenu extends React.Component {
         transition: 'filter 0.5s ease',
       },
     }
-    const menu = ['Log out', 'Wijmo grid', 'Repairs', 'User profile', 'Contact', 'Info']
-    const tos = ['/', '/WorkshopManager_Web/WijmoGrid', '/Repairs', 'user-profile', '/Contact', '/Info'];
+    const menu = ['Log out', 'Wijmo grid', 'Repairs', 'User profile', 'Users list', 'Contact', 'Info']
+    const tos = ['/', '/WorkshopManager_Web/WijmoGrid', '/Repairs', 'user-profile', '/Users', '/Contact', '/Info'];
     const menuItems = menu.map((val, index) => {
       return (
         <MenuItem
